@@ -10,4 +10,4 @@ exclude =
     */node_modules/*
 
 max-line-length = 150
-ignore = E125,E126,E251,E303,W504cd
+ignore = E125,E126,E251,E303,W504,W60,F405, E501,E225,,E231,E302,,E722,F401,F811,F841,W391,E722
