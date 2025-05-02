@@ -1,0 +1,13 @@
+[flake8]
+exclude =
+    env/,
+    */env/*,
+    .venv/,
+    */.venv/*,
+    */.tox/*,
+    */migrations/*,
+    */__init__.py,
+    */node_modules/*
+
+max-line-length = 150
+ignore = E125,E126,E251,E303,W504cd
