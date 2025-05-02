@@ -14,7 +14,7 @@ exclude =
     django_project/*/test_*.py,
     django_project/frontend/node_modules/*,
     env/*
-ignore = W504
+
 max-line-length = 120
 
 # Only valid codes allowed here

@@ -19,7 +19,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="orderitem",
             name="status",
-            field=models.CharField(default="Pending", max_length=20, null=True),
+            field=models.CharField(
+                default="Pending", max_length=20, null=True),
         ),
         migrations.AddField(
             model_name="orderitem",

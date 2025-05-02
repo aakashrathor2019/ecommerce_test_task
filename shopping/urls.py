@@ -49,8 +49,10 @@ urlpatterns = [
         name="product_list_by_category",
     ),
     path("view_cart/", ViewCart.as_view(), name="view_cart"),
-    path("add_to_cart/<int:product_id>/", AddToCart.as_view(), name="add_to_cart"),
-    path("remove_items/<int:item_id>/", RemoveItems.as_view(), name="remove_items"),
+    path("add_to_cart/<int:product_id>/",
+         AddToCart.as_view(), name="add_to_cart"),
+    path("remove_items/<int:item_id>/",
+         RemoveItems.as_view(), name="remove_items"),
     path("show_product/", ShowProduct.as_view(), name="show_product"),
     path("buy_now/<int:product_id>/", BuyNow.as_view(), name="buy_now"),
     # path('confirm_order/<int:product_id>/',ConfirmOrder.as_view(), name='confirm_order'),
@@ -60,8 +62,10 @@ urlpatterns = [
     path("payment_cancel/", PaymentCancel.as_view(), name="payment_cancel"),
     path("show_order_list/", ShowOrderList.as_view(), name="show_order_list"),
     path("order_using_cart/", OrderDone.as_view(), name="order_using_cart"),
-    path("cancel_order/<int:product_id>/", CancelOrder.as_view(), name="cancel_order"),
+    path("cancel_order/<int:product_id>/",
+         CancelOrder.as_view(), name="cancel_order"),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

@@ -39,7 +39,8 @@ class LoginUserHome(LoginRequiredMixin, View):
         data = Product.objects.all()
         category = Category.objects.all()
         return render(
-            request, "login_user_home.html", {"products": data, "categories": category}
+            request, "login_user_home.html", {
+                "products": data, "categories": category}
         )
 
 
@@ -117,7 +118,8 @@ class UserLogin(View):
             return render(request, "login_user_home.html", {"products": data})
         else:
             return render(
-                request, "login.html", {"form": form, "error": "Enter Correct Details"}
+                request, "login.html", {"form": form,
+                                        "error": "Enter Correct Details"}
             )
 
     def get(self, request):
@@ -249,7 +251,8 @@ class ViewCart(LoginRequiredMixin, View):
         app_user = request.user.appuser
         cart_items = CartItem.objects.filter(user=app_user)
         category = Category.objects.all()
-        total_price = sum(item.product.price * item.quantity for item in cart_items)
+        total_price = sum(item.product.price *
+                          item.quantity for item in cart_items)
         return render(
             request,
             "view_cart.html",
@@ -390,7 +393,8 @@ class OrderDone(LoginRequiredMixin, View):
                         }
                     ],
                     mode="payment",
-                    success_url=request.build_absolute_uri("/payment_success/"),
+                    success_url=request.build_absolute_uri(
+                        "/payment_success/"),
                     cancel_url=request.build_absolute_uri("/payment_cancel/"),
                 )
                 return redirect(session.url, code=303)
@@ -438,14 +442,16 @@ class OrderDone(LoginRequiredMixin, View):
                     payment_method_types=["card"],
                     line_items=line_items,
                     mode="payment",
-                    success_url=request.build_absolute_uri("/payment_success/"),
+                    success_url=request.build_absolute_uri(
+                        "/payment_success/"),
                     cancel_url=request.build_absolute_uri("/payment_cancel/"),
                 )
                 return redirect(session.url, code=303)
 
         except stripe.error.StripeError as e:
             return render(
-                request, "order_done.html", {"error": f"Stripe error: {str(e)}"}
+                request, "order_done.html", {
+                    "error": f"Stripe error: {str(e)}"}
             )
         except Exception as e:
             return render(request, "order_done.html", {"error": f"Error: {str(e)}"})

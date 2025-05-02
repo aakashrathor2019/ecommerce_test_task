@@ -37,11 +37,13 @@ class SignUp(forms.ModelForm):  # Use ModelForm for model-based forms
         )
     )
     email = forms.EmailField(
-        widget=forms.EmailInput(attrs={"class": "form-control", "placeholder": "Email"})
+        widget=forms.EmailInput(
+            attrs={"class": "form-control", "placeholder": "Email"})
     )
     contact = forms.CharField(
         widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "Enter Your Mobile Number"}
+            attrs={"class": "form-control",
+                   "placeholder": "Enter Your Mobile Number"}
         )
     )
     address = forms.CharField(
@@ -72,6 +74,7 @@ class SignUp(forms.ModelForm):  # Use ModelForm for model-based forms
                     "Email ID not found. Please use a valid email address."
                 )
         except requests.RequestException:
-            raise ValidationError("Error verifying email. Please try again later.")
+            raise ValidationError(
+                "Error verifying email. Please try again later.")
 
         return email

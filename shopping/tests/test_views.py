@@ -12,7 +12,8 @@ class TestViews:
 
     @patch("shopping.forms.requests.get")
     def test_signup_post_valid(self, mock_get, client):
-        mock_get.return_value.json.return_value = {"data": {"result": "deliverable"}}
+        mock_get.return_value.json.return_value = {
+            "data": {"result": "deliverable"}}
 
         data = {
             "username": "testuser",
@@ -26,7 +27,8 @@ class TestViews:
 
     @patch("shopping.forms.requests.get")
     def test_signup_post_duplicate_email(self, mock_get, client):
-        mock_get.return_value.json.return_value = {"data": {"result": "deliverable"}}
+        mock_get.return_value.json.return_value = {
+            "data": {"result": "deliverable"}}
 
         user = User.objects.create_user(
             username="testuser", email="testuser@example.com", password="password123"
@@ -107,7 +109,8 @@ class TestViews:
             category=category,
         )
 
-        response = client.get(reverse("product_list_by_category", args=[category.id]))
+        response = client.get(
+            reverse("product_list_by_category", args=[category.id]))
         assert response.status_code == 200
         assert product1.name in str(response.content)
         assert product2.name in str(response.content)
@@ -232,12 +235,14 @@ class TestViews:
             image="x.jpg",
             category=Category.objects.create(name="c"),
         )
-        item = CartItem.objects.create(user=app_user, product=product, quantity=1)
+        item = CartItem.objects.create(
+            user=app_user, product=product, quantity=1)
         print(item)
         client.force_login(user)
         response = client.get(reverse("remove_items", args=[product.id]))
         assert response.status_code == 302
-        assert not CartItem.objects.filter(user=app_user, product=product).exists()
+        assert not CartItem.objects.filter(
+            user=app_user, product=product).exists()
 
     def test_delete_account(self, client, django_user_model):
         user = django_user_model.objects.create_user(

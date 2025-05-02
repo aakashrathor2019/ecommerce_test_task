@@ -90,7 +90,8 @@ class CartItem(models.Model):
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["user", "product"], name="unique_cart_item")
+            models.UniqueConstraint(
+                fields=["user", "product"], name="unique_cart_item")
         ]
 
     def __str__(self):
