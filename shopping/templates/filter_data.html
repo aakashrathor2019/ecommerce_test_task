@@ -19,8 +19,8 @@
                </p>
               <p class="product-price"><strong>₹ {{ product.price }}</strong></p>
             </div>
-          </a>   
-          <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a> 
+          </a>
+          <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
       </div>
       {% endfor %}
     {% else %}

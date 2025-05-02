@@ -12,16 +12,16 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{% url 'home' %}"><strong>Home</strong></a>
         </li>
-        
+
         <li class="nav-item dropdown">
           <ul class="navbar-nav ms-auto">
             {% if user.is_authenticated %}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'user_profile' %}"><strong>Profile</strong></a>
-                </li> 
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'view_cart'  %}"><strong>View Cart</strong></a>
-                </li> 
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'show_order_list' %}"><strong>Order History</strong></a>
               </li>
@@ -38,7 +38,7 @@
             {% endif %}
         </ul>
         </li>
-         
+
         <!-- Categories Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

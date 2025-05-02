@@ -30,7 +30,7 @@
         <th>Price</th>
         <th>Order Date</th>
         <th>Status</th>
-      
+
     </tr>
     {% for item in orders %}
     <tr style="text-align: center;">
@@ -39,13 +39,13 @@
                 {{item.product.name|slice:":30" }}...
           {% else %}
                 {{ item.product.name }}
-          {% endif %} 
+          {% endif %}
         </td>
         <td><img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 100px; height: auto;"></td>
         <td>{{ item.quantity }}</td>
         <td>₹{{ item.price }}</td>
         <td>{{ item.created_at }}</td>
-        <td> 
+        <td>
           {% if item.status == 'Pending' %}
             <div class="pending">
               {{item.status}}
@@ -60,11 +60,9 @@
             </div>
           {% endif %}
         </td>
-        
+
     </tr>
     {% endfor %}
 </table>
- 
+
 {% endblock %}
-
-

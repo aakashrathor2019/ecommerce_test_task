@@ -34,7 +34,7 @@
   <div class="product-grid">
     {% for product in products %}
     <div class="product-item">
-      
+
         <a href="{% url 'product_detail' product.id %}">
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
             <div class="product_info">
@@ -50,15 +50,15 @@
         </a>
         <a href="{% url 'add_to_cart' product.id %}" onclick="add()" class="btn btn-primary">Add to Cart</a>
     </div>
-    
+
     {% endfor %}
   </div>
   <style>
       #carouselExampleCaptions {
         max-width: 100%;
-        
+
       }
- 
-      
+
+
   </style>
 {% endblock %}

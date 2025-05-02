@@ -11,14 +11,14 @@
 {% block content %}
     <form method="post" action="{% url 'add_product' %}" enctype="multipart/form-data" style="margin: 2px;padding: 3px;">
             <div class="errors" style="padding: 5px;color: red;">
-              {{ error }} 
+              {{ error }}
             </div>
               {% csrf_token %}
               <div class="md3">
                 {{ form.as_p }}
             </div>
             {% if form.errors %}
-            
+
                 <div class="errors">
                     <ul>
                         {% for field in form %}
@@ -29,8 +29,8 @@
                     </ul>
                 </div>
             {% endif %}
-        
-        <button type="submit" class="btn btn-primary btn-lg pull-right">Add Item</button>   
+
+        <button type="submit" class="btn btn-primary btn-lg pull-right">Add Item</button>
     </form>
 
 {% endblock  %}

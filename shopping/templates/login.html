@@ -9,17 +9,17 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div class="container w-50"> 
+<div class="container w-50">
    <form method="post" action="{% url 'user_login' %}" style="margin: 2px;padding: 3px;">
       <div class="errors" style="padding: 5px;color: red;">
-          {{ error }} 
+          {{ error }}
       </div>
-      {% csrf_token %}  
+      {% csrf_token %}
       <div class="md3">
           {{ form.as_p }}
       </div>
       {% if form.errors %}
-      
+
           <div class="errors">
               <ul>
                   {% for field in form %}
@@ -30,7 +30,7 @@
               </ul>
           </div>
       {% endif %}
-   
+
    <button type="submit" class="btn btn-primary btn-lg pull-right">Submit</button>
 </form>
 </div>
