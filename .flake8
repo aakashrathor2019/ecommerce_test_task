@@ -1,13 +1,21 @@
 [flake8]
 exclude =
-    env/,
+    */docs/*,
     */env/*,
-    .venv/,
-    */.venv/*,
     */.tox/*,
+    */.venv/*,
+    */.pycharm_helpers/*,
     */migrations/*,
+    docs/*,
+    fabfile.py,
     */__init__.py,
-    */node_modules/*
+    django_project/core/settings/*.py,
+    django_project/*/tests/*.py,
+    django_project/*/test_*.py,
+    django_project/frontend/node_modules/*,
+    env/*
+ignore = W504
+max-line-length = 120
 
-max-line-length = 150
-ignore = E125,E126,E251,E303,W504,W60,F405, E501,E225,,E231,E302,,E722,F401,F811,F841,W391,E722
+# Only valid codes allowed here
+ignore = E125,E126,E251,E303,W504,F405,E501,E225,E231,E302,E722,F401,F811,F841,W391
