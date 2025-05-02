@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Buy Matrix{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+  <div class="row d-flex justify-content-around align-items-center">
+    <!-- Image Block -->
+    <div class="col-md-4">
+      <div >
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded">
+      </div>
+    </div>
+    <!-- Details Block -->
+    <div class="col-md-8">
+      <div>
+        <h3 class="product-name"><strong>{{ product.name }}</strong></h3>
+        <p class="product-description">{{ product.desc }}</p>
+        <p class="product-price"><strong>Price:</strong> ₹{{ product.price }}</p>
+        <!-- Action Buttons -->
+        <a href="{% url 'add_to_cart' product.id %}" onclick="add()" class="btn btn-primary me-3">Add to Cart</a>
+        <a href="{% url 'buy_now' product.id %}" class="btn btn-success">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function add() {
+    alert('Item added into cart');
+  }
+</script>
+
+<style>
+  
+</style>
+{% endblock %}

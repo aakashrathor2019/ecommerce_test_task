@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+  <div class="product-grid">
+    {% if filter_data %}
+      {% for product in filter_data %}
+      <div class="product-item">
+          <a href="{% url 'product_detail' product.id %}">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="product-info">
+               <p class="product-name">
+                  {% if product.name|length > 15 %}
+                    {{product.name | slice:"15  "}}....
+                  {% else %}
+                    {{product.name}}
+                  {% endif %}
+               </p>
+              <p class="product-price"><strong>₹ {{ product.price }}</strong></p>
+            </div>
+          </a>   
+          <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a> 
+      </div>
+      {% endfor %}
+    {% else %}
+        <!-- Centered message when no items are found -->
+      <div class="no-items-found">
+        <p>Item Not Found</p>
+      </div>
+    {% endif %}
+  </div>
+  <style>
+    .no-items-found {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center;    /* Center vertically */
+      height: 60vh;           /* Adjust the height as needed */
+      text-align: center;
+    }
+    .no-items-found p {
+      font-size: 24px;
+      color: red; /* Customize the text color as needed */
+    }
+  </style>
+{% endblock %}
